@@ -8,10 +8,15 @@
       "default_icon": "tabicon.png",
       "default_title": "Have a good day"
     },
-   "chrome_url_overrides" : {
-     "newtab": "newtab.html"
-   },
-    "permissions": ["activeTab"],
+    "content_scripts": [{
+      "js": [ "content.js"],
+      "matches": [ "<all_urls>"]
+     }],
+    "background": {
+      "scripts": ["background.js","script.js"]
+     },
+     "permissions": ["contextMenus", "tabs","activeTab"],
+     "web_accessible_resources" : ["*.html"],
     "content_security_policy": "script-src 'self' https://code.jquery.com/jquery-3.3.1.js; object-src 'self'"
 
 
